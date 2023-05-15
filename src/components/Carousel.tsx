@@ -12,13 +12,14 @@ export const CarouselC = ({items}: CarouselProps) => {
 
     return(
     <>
-    <Carousel className="carousel-comp col-12" slide={false} interval={100000}>
+    <Carousel className="carousel-comp col-12" interval={100000}>
         {items.map((item,index) => (
             <Carousel.Item key={index} className="carousel-c">
             <Link to={'/home/' + item?.imdbID} state={{film: item?.imdbID}}>
               <div className="ab1" style={{backgroundImage: 'url('+item?.Poster + ')'}}/> 
             </Link>
-            <Carousel.Caption>
+            <Carousel.Caption className='caption'>
+              <p>ciao</p>
             </Carousel.Caption>
           </Carousel.Item>
         ) )}

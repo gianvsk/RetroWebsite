@@ -21,7 +21,7 @@ export const DetailCardC = () => {
         <>
         <div className="flex-center">        
         <Card className='card-details col-8'>
-          <div className="ab" style={{backgroundImage: 'url('+item?.Poster + ')'}}/>
+          <div className="ab2" style={{backgroundImage: 'url('+item?.Poster + ')'}}/>
             <Card.Body className='card-body-details'>
               <Card.Title>{item?.Title}</Card.Title>
               <Card.Text className="card-details">

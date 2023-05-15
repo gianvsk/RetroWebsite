@@ -87,8 +87,23 @@ body {
   color: rgb(255, 203, 120);
 }
 
+.navbar-toggler {
+  padding: 2px 6px;
+}
+
 .navbar-toggler.collapsed {
   background-color: rgb(255, 203, 120);
+}
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login p {
+  margin: 0;
+  margin-left: 5px;
+  font-size: 18px;
 }
 
 .carousel-c {
@@ -99,6 +114,42 @@ body {
   display: flex;
   place-items: center;
   margin: 0;
+}
+
+.carousel-control-next .carousel-control-next-icon:hover {
+  background-color: rgb(153, 64, 255);
+  border-radius: 25% 25%;
+}
+
+.carousel-control-prev-icon:active, .carousel-control-next-icon:active {
+  background-color: rgb(153, 64, 255);
+  border-radius: 25% 25%;
+}
+
+.ab1 {
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+  transition: all 0.5s ease-out;
+}
+
+.ab1:hover {
+  background-size: 110% 100%;
+}
+
+.ab2 {
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+  transition: all 0.5s ease-out;
+}
+
+.ab2:hover {
+  background-size: 110% 100%;
 }
 
 .card-style {
@@ -131,6 +182,24 @@ body {
   height: auto;
 }
 
+.card-body-b {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background-color: rgb(153, 64, 255);
+  color: white;
+}
+.card-body-b a {
+  text-decoration: none;
+}
+.card-body-b .h5 {
+  font-family: Montserrat;
+  color: white;
+  font-size: 30px;
+  text-shadow: 0.5rem 0.5rem 0.4rem black;
+}
+
 .card-img-top {
   border: 2px solid white;
   margin-bottom: 10px;
@@ -147,6 +216,7 @@ body {
 }
 
 .card-body-details {
+  align-items: flex-start;
   height: 20px;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -169,6 +239,24 @@ body {
   width: 70%;
   height: 700px;
   background-color: rgb(55, 55, 55);
+}
+
+.caption {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 10px;
+  height: 0px;
+  background-color: rgba(0, 0, 0, 0.4);
+  transition: height 1s;
+}
+.caption p {
+  font-size: 40px;
+}
+
+.carousel-c:hover .carousel-caption {
+  height: 150px;
 }
 
 .card-image {
@@ -218,6 +306,55 @@ span {
   display: flex;
   justify-content: center;
   align-items: flex-start;
+}
+
+.offcanvas-body {
+  background-color: rgb(55, 55, 55);
+}
+.offcanvas-body a {
+  text-decoration: none;
+}
+
+.offcanvas-link {
+  text-decoration: none;
+  font-family: Montserrat;
+  color: white;
+  font-size: 22px;
+}
+
+.offcanvas-title {
+  font-family: Montserrat;
+  color: white;
+  font-size: 30px;
+}
+
+.offcanvas-header {
+  background-color: rgb(153, 64, 255);
+}
+
+.offcanvas-separator {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px;
+}
+.offcanvas-separator a {
+  border-bottom: 1px solid white;
+}
+.offcanvas-separator p {
+  margin: 0;
+}
+
+.form-control {
+  font-family: Montserrat;
+}
+
+.form-control:focus, .form-control:active {
+  background-color: white;
+  color: black;
+  box-shadow: 0 0 0 0.25rem rgba(175, 118, 241, 0.718);
+  border-color: rgb(153, 64, 255);
 }
 
 .listGroup {
@@ -321,7 +458,6 @@ span {
   justify-content: space-around;
   height: 80px;
   background-color: rgb(55, 55, 55);
-  border-top: 1px solid black;
 }
 
 .navContainerRev a {
@@ -332,6 +468,7 @@ span {
 .footer {
   display: flex;
   justify-content: flex-start;
+  margin-top: 50px;
 }
 .footer p {
   width: 80%;
@@ -341,6 +478,9 @@ span {
 @media (min-width: 330px) {
   .main {
     height: 775px;
+  }
+  .form-control {
+    font-size: 14px;
   }
   .search {
     height: 775px;
@@ -409,9 +549,11 @@ span {
   }
   .carousel-caption {
     width: 100%;
+    height: 0;
     overflow: visible;
     right: 0;
     left: 0;
+    bottom: 0;
   }
   .carousel a {
     height: 100%;
@@ -500,8 +642,8 @@ span {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 700px;
+    justify-content: flex-start;
+    height: 450px;
   }
   .card-body a {
     text-decoration: none;
@@ -526,9 +668,19 @@ span {
     font-size: 30px;
     text-shadow: 0.5rem 0.5rem 0.4rem black;
   }
+  .card-body-b {
+    border: 0;
+    border-top: 3px solid rgb(0, 0, 0);
+    height: 200px;
+    background-color: rgb(153, 64, 255);
+    color: white;
+  }
+  .card-body-b .h5 {
+    font-size: 30px;
+    text-shadow: 0.5rem 0.5rem 0.4rem black;
+  }
   .navContainerRev {
     flex-direction: row-reverse;
-    padding-right: 40px;
   }
   .navContainerRev a {
     text-align: center;
@@ -542,11 +694,36 @@ span {
     height: 300px;
     background-color: rgb(55, 55, 55);
   }
-  .footer-c {
+  .footer-c1 {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+  .footer-c2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .footer-c2 p {
+    margin: 0;
+  }
+  .footer-div1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 70%;
+    border-right: 1px solid white;
+  }
+  .footer-div2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 70%;
+    border-left: 1px solid white;
   }
 }
 @media (min-width: 576px) {

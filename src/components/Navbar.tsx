@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Form, Offcanvas } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { faHouse, faSearch, faUser } from "@fortawesome/free-solid-svg-icons";
 
 export const NavbarC = () => {
 
@@ -15,34 +15,41 @@ export const NavbarC = () => {
 
     return(
         <nav>
-        <Navbar expand="lg" className="mb-0 color-navbar col-12">
+        <Navbar expand="md" className="mb-0 color-navbar col-12">
           <Container fluid className="navContainerRev">
-          <Navbar.Brand><FontAwesomeIcon icon={faUser} size="lg" /></Navbar.Brand>
+          <Navbar.Brand className='login'>
+            <FontAwesomeIcon icon={faUser} size="lg" />
+          </Navbar.Brand>
             <Link to="/home"><Navbar.Brand>Home</Navbar.Brand></Link>
-            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-lg`} />
+            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-md`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-md`}
-              aria-labelledby={`offcanvasNavbarLabel-expand-lg`}
+              aria-labelledby={`offcanvasNavbarLabel-expand-md`}
               placement="start"
             >
               <Offcanvas.Header closeButton>
-                <Offcanvas.Title id={`offcanvasNavbarLabel-expand-lg`}>
+                <Offcanvas.Title id={`offcanvasNavbarLabel-expand-md`}>
                   Side
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Link to="/home">Home</Link>
+                  <div className="offcanvas-separator">
+                    <Link className='offcanvas-link' to="/home"><FontAwesomeIcon icon={faHouse} /> Home</Link>
+                  </div>
+                  <div className="offcanvas-separator">
+                  <p className='offcanvas-link'><FontAwesomeIcon icon={faSearch} /> Search</p>
+                  </div>
                 </Nav>
                 <Form className="d-flex">
                   <Form.Control
                     type="search"
                     placeholder="Search"
-                    className="me-2"
+                    className="me-2 searchbar"
                     aria-label="Search"
                     onChange={(e) => setTextButton(e.target.value)}
                   />
-                  <Link to="home" state={{textButton: textButton}}><Button variant="outline-success">Search</Button></Link>
+                  <Link to="home" state={{textButton: textButton}}><Button className="card-button-1">Go</Button></Link>
                 </Form>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
