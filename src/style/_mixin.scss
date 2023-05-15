@@ -1,0 +1,9 @@
+@mixin toRem($property, $value) {
+    #{$property} : calc($value / 16) + rem;
+}
+
+@mixin flex-center {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}

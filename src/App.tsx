@@ -1,26 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useContext, useEffect } from 'react';
 import './App.css';
+import { ThemeContext, ThemeContexts } from './components/Theme';
+import { NavbarC } from './components/Navbar';
+import { Sidebar } from './components/Sidebar';
+import { Outlet } from 'react-router-dom';
+import { Home } from './components/Home';
+import { Footer } from './components/Footer';
 
-function App() {
+const App = () => {
+  const { theme, setTheme } = useContext(ThemeContext);
+  const toggleTheme = () => {setTheme(theme === "light" ? "dark" : "light")}
+
+  const color = theme === "light" ? "#333" : "#FFF";
+  const backgroundColor = theme === "light" ? "#FFF" : "#333";
+
+  document.body.style.color = color;
+  document.body.style.backgroundColor = backgroundColor;
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <NavbarC/>
+{/*     <div className="row">
+      <div>Hi friend!</div>
+      <button onClick={() => toggleTheme}>
+        Switch to {theme === 'light' ? 'dark' : 'light'} mode
+      </button>
+      </div> */}
+    
+    <div className='row d'>
+      <Sidebar/>
+      <div className='col-12'>
+        <Home/>
+      </div>
+      <Footer/>
     </div>
+    </>
   );
-}
+};
 
 export default App;
