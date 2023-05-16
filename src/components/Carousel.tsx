@@ -19,7 +19,7 @@ export const CarouselC = ({items}: CarouselProps) => {
               <div className="ab1" style={{backgroundImage: 'url('+item?.Poster + ')'}}/> 
             </Link>
             <Carousel.Caption className='caption'>
-              <p>ciao</p>
+              <h1>{item.Title}</h1>
             </Carousel.Caption>
           </Carousel.Item>
         ) )}

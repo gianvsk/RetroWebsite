@@ -9,9 +9,6 @@ body {
     background-color: rgb(255, 255, 255);
 }
 
-.d {
-    background-color: rgb(255, 203, 120);
-}
 .row {
     --bs-gutter-x: 0;
 }
@@ -81,7 +78,7 @@ body {
 }
 
 .navbar-brand {
-    color:rgb(255, 203, 120);
+    color:rgb(153, 64, 255);
 }
 
 .navbar-toggler {
@@ -89,7 +86,7 @@ body {
 }
 
 .navbar-toggler.collapsed {
-    background-color: rgb(255, 203, 120);
+    background-color: rgb(153, 64, 255);
 }
 
 .login {
@@ -218,9 +215,29 @@ body {
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
-    background-color: white;
+    background-color: rgb(153, 64, 255);
     overflow: hidden;
     transition:all 1s;
+
+    .card-title {
+            font-family: Montserrat;
+            color:white;
+            font-size:30px;
+            text-align: center;
+            text-shadow: 0.5rem 0.5rem 0.4rem black;
+            margin-bottom:10px;
+        }
+
+    ul {
+        background-color:rgb(153, 64, 255);
+        border:2px solid white;
+
+    }
+
+    li {
+        color:white;
+
+    }
 }
 
 .card-details 
@@ -525,10 +542,10 @@ span {
     .carousel .carousel-indicators [data-bs-target] {
         position:relative;
         background-color: rgb(169, 169, 255);
-        height: 20px;
+        height: 10px;
         margin: 7px;
         border-radius: 50%;
-        width:20px;
+        width:10px;
         overflow:hidden;
         &:after {
             content:'';
@@ -604,7 +621,7 @@ span {
         transition: all 0.5s ease-out;
     }
     .ab2:hover {
-        background-size:110% 100%;
+        background-size:110% 110%;
     }
 
     .image-card-container {
@@ -657,7 +674,7 @@ span {
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
-        height:450px;
+        height:800px;
         
         a {
             text-decoration: none;
@@ -682,6 +699,7 @@ span {
             color:white;
             font-size:30px;
             text-shadow: 0.5rem 0.5rem 0.4rem black;
+            text-align: center;
         }
     }
 

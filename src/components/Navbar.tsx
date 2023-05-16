@@ -11,7 +11,7 @@ import { faHouse, faSearch, faUser } from "@fortawesome/free-solid-svg-icons";
 
 export const NavbarC = () => {
 
-  const [textButton, setTextButton] = useState<string>()
+  const [textButton, setTextButton] = useState<string>('')
 
     return(
         <nav>
@@ -49,7 +49,12 @@ export const NavbarC = () => {
                     aria-label="Search"
                     onChange={(e) => setTextButton(e.target.value)}
                   />
-                  <Link to="home" state={{textButton: textButton}}><Button className="card-button-1">Go</Button></Link>
+                  {(textButton!.length > 2 && textButton !== '') && 
+                  <Link to="home" state={{textButton: textButton}}>
+                    <Button className="card-button-1">
+                      <FontAwesomeIcon icon={faSearch} />
+                    </Button>
+                  </Link>}
                 </Form>
               </Offcanvas.Body>
             </Navbar.Offcanvas>

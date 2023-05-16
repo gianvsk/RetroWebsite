@@ -17,11 +17,12 @@ return (
       <Routes>
         <Route path="/" element={<App/>}>
           <Route path="home" element={<Home/>}>
-              <Route path=":id" element={<Detail/>}/>
+              <Route path=":id" element={<Detail/>}>
+                <Route path="details" element={<DetailCardC/>}/>
+              </Route>
           </Route>
           <Route path="search" element= {<SearchC/>}/>
           </Route>
-        <Route path="details" element={<DetailCardC/>}/>
       </Routes>
     </BrowserRouter>
   </ThemeProvider>

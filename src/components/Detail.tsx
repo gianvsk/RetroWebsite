@@ -79,10 +79,10 @@ export const Detail = () => {
 
         return (
             <>
-            <Container className="container-fluid flex-center-details">
+            {film && <Container className="container-fluid flex-center-details">
                 <CardC item={actualFilm!} key={film}/>
-            </Container>
-            <Outlet/>
+            </Container> }
+            {film && <Outlet/>}
             </>
         )
     }
