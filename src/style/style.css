@@ -680,6 +680,11 @@ span {
     text-shadow: 0.5rem 0.5rem 0.4rem black;
     text-align: center;
   }
+  .big {
+    height: 100px;
+    width: 100%;
+    background-color: red;
+  }
   .card-body-b {
     border: 0;
     border-top: 3px solid rgb(0, 0, 0);
