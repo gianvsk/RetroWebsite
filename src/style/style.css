@@ -19,6 +19,92 @@ body {
   color: black;
 }
 
+.div-theme-light {
+  color: black;
+  animation-name: theme-change-light;
+  animation-duration: 1.5s;
+}
+
+.div-theme-dark {
+  color: white;
+  animation-name: theme-change-dark;
+  animation-duration: 1.5s;
+}
+
+@keyframes theme-change-light {
+  0% {
+    background-color: rgb(55, 55, 55);
+  }
+  100% {
+    background-color: white;
+  }
+}
+@keyframes theme-change-dark {
+  0% {
+    background-color: white;
+  }
+  100% {
+    background-color: rgb(55, 55, 55);
+  }
+}
+.theme-button-light {
+  position: relative;
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  z-index: 2;
+  overflow: hidden;
+  transition: all 1s;
+}
+.theme-button-light:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #86e673;
+  transition: all 2s;
+  z-index: -1;
+}
+.theme-button-light:before:hover:before {
+  transform: translateX(30px);
+}
+
+.theme-button-dark {
+  position: relative;
+  background-color: black;
+  color: white;
+  border: 2px solid white;
+  z-index: 2;
+  overflow: hidden;
+  transition: all 1s;
+}
+.theme-button-dark:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #86e673;
+  transition: all 2s;
+  z-index: -1;
+}
+.theme-button-dark:hover:before {
+  transform: translateX(180px);
+}
+
+.theme-light-container {
+  animation: theme-change-light;
+  animation-duration: 1.5s;
+}
+
+.theme-dark-container {
+  animation: theme-change-dark;
+  animation-duration: 1.5s;
+}
+
 .split-1 {
   height: 100%;
   display: flex;
@@ -75,7 +161,6 @@ body {
   z-index: 999;
   top: 0;
   background-color: rgb(55, 55, 55);
-  border: 2px solid black;
   color: white;
 }
 
@@ -683,7 +768,6 @@ span {
   .big {
     height: 100px;
     width: 100%;
-    background-color: red;
   }
   .card-body-b {
     border: 0;
@@ -755,7 +839,6 @@ span {
     height: 785px;
     display: flex;
     flex: 1;
-    border: 3px solid rgb(0, 0, 0);
   }
 }
 @media (min-width: 991px) {

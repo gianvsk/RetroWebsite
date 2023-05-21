@@ -20,6 +20,12 @@ const App = () => {
 
   const [theme, setTheme] = useState<string>("light");
 
+  const [themeContainer, setThemeContainer] = useState<string>('theme-dark-container')
+
+  useEffect(() => {
+    setThemeContainer(theme === 'light'? 'theme-dark-container' : 'theme-light-container')
+  }, [theme])
+
   const toggleTheme = () => {setTheme(theme === "light" ? "dark" : "light")}
 
   const contextValues: MyContextType = {
@@ -28,8 +34,8 @@ const App = () => {
     toggleTheme
   }
 
-  const color = theme === "light" ? "#333" : "#FFF";
-  const backgroundColor = theme === "light" ? "#FFF" : "#333";
+  const color = theme === "light" ? "black" : "#FFF";
+  const backgroundColor = theme === "light" ? "#333" : "#FFF";
 
   document.body.style.color = color;
   document.body.style.backgroundColor = backgroundColor;  
@@ -39,9 +45,9 @@ const App = () => {
     <MyContext.Provider value={contextValues}>
     <NavbarC/>
     <div className='row d'>
-    <ThemeProviderr/>
+      <ThemeProviderr/>
       <Sidebar/>
-      <div className='col-12'>
+      <div className={`col-12 ${themeContainer}`}>
         <Home/>
       </div>
       <Footer/>

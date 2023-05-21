@@ -1,5 +1,6 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { MyContext } from "../App";
+import { Button } from "react-bootstrap";
 
 export type Theme = "light" | "dark";
 
@@ -11,16 +12,25 @@ type IProps = {children: React.ReactNode} */
 
 export const ThemeProviderr = (/* IProps */) => {
 
-  const {theme, setTheme, toggleTheme} = useContext(MyContext)!;
+  const {theme, setTheme, toggleTheme} = useContext(MyContext)!
+
+  const [themeButton, setThemeButton] = useState('theme-button-dark')
+  const [themeDiv, setThemeDiv] = useState('div-theme-dark')
+
+  const changeButton = () => {
+    setThemeButton(themeButton === 'theme-button-dark' ? 'theme-button-light' : 'theme-button-dark')
+    setThemeDiv(themeButton === 'theme-button-dark' ? 'div-theme-light' : 'div-theme-dark')
+  }
 
   return (
     <>    
-    <div className="big">
+    <div className={`big ${themeDiv}`}>
     <h1>Hi friend!</h1>
-    <button onClick={() => (toggleTheme(),
-                            console.log(theme))}>
+    <Button className={`${themeButton}`} onClick={() => (toggleTheme(),
+                                                    changeButton(),
+                            console.log(themeButton))}>
       Switch to {theme === 'light' ? 'dark' : 'light'} mode
-    </button>    
+    </Button>    
     </div>
 
     </>
