@@ -21,6 +21,7 @@ export const CarouselC = ({items}: CarouselProps) => {
             <Carousel.Caption className='caption'>
               <h1>{item.Title}</h1>
             </Carousel.Caption>
+            
           </Carousel.Item>
         ) )}
         </Carousel>

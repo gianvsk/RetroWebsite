@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -8,17 +8,30 @@ import { Button, Form, Offcanvas } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse, faSearch, faUser } from "@fortawesome/free-solid-svg-icons";
+import { ThemeProviderr } from "./Theme";
+import { MyContext } from "../App";
 
 export const NavbarC = () => {
 
-  const [textButton, setTextButton] = useState<string>('')
+  const [textButtonNav, setTextButtonNav] = useState<string>('')
+
+  const [navTheme, setNavTheme] = useState<string>('theme-light-nav')
+
+  const navColorTheme = useContext(MyContext);
+
+  useEffect(() => {
+    setNavTheme(navColorTheme?.theme === 'light' ? 'theme-dark-nav' : 'theme-light-nav');
+  }, [navColorTheme?.theme])
 
     return(
         <nav>
-        <Navbar expand="md" className="mb-0 color-navbar col-12">
+        <Navbar expand="md" className={`mb-0 color-navbar col-12 ${navTheme}`}>
           <Container fluid className="navContainerRev">
           <Navbar.Brand className='login'>
             <FontAwesomeIcon icon={faUser} size="lg" />
+          </Navbar.Brand>
+          <Navbar.Brand>
+            <ThemeProviderr/>
           </Navbar.Brand>
             <Link to="/home"><Navbar.Brand>Home</Navbar.Brand></Link>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-md`} />
@@ -47,15 +60,17 @@ export const NavbarC = () => {
                     placeholder="Search"
                     className="me-2 searchbar"
                     aria-label="Search"
-                    onChange={(e) => setTextButton(e.target.value)}
+                    onChange={(e) => setTextButtonNav(e.target.value)}
                   />
-                  {(textButton!.length > 2 && textButton !== '') && 
-                  <Link to="home" state={{textButton: textButton}}>
+                  { 
+                  (textButtonNav!.length > 2 && textButtonNav[textButtonNav.length-1] !== ' ') && 
+                  <Link to="home" state={{textButton: textButtonNav}}>
                     <Button className="card-button-1">
                       <FontAwesomeIcon icon={faSearch} />
                     </Button>
                   </Link>}
                 </Form>
+                <h6>Don't use ' ' as last character</h6>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
           </Container>

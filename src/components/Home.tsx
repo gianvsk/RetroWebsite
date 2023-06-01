@@ -54,8 +54,8 @@ export const Home = () => {
                       <div className="padding-0">
                         <CarouselC items={movies}/> 
                         <div className="justify-content-space-around">
-                          <Button className='card-button-1' onClick={() => setPage(Math.max(page-1, 1))}><FontAwesomeIcon icon={faArrowAltCircleLeft} size='xl' /></Button> 
-                          <Button className='card-button-1' onClick={() => setPage(page+1)}><FontAwesomeIcon icon={faArrowAltCircleRight} size='xl' /></Button>
+                          <Button className='card-button-1' onClick={() => setPage(Math.max(page-1, 1))}><FontAwesomeIcon icon={faArrowAltCircleLeft} size='sm' /></Button> 
+                          <Button className='card-button-1' onClick={() => setPage(page+1)}><FontAwesomeIcon icon={faArrowAltCircleRight} size='sm' /></Button>
                         </div>
                         <CardContainerC items={movies}/>
                       </div>

@@ -24,12 +24,11 @@ export const ThemeProviderr = (/* IProps */) => {
 
   return (
     <>    
-    <div className={`big ${themeDiv}`}>
-    <h1>Hi friend!</h1>
+    <div className={`${themeDiv}`}>
     <Button className={`${themeButton}`} onClick={() => (toggleTheme(),
                                                     changeButton(),
                             console.log(themeButton))}>
-      Switch to {theme === 'light' ? 'dark' : 'light'} mode
+      Switch to {theme === 'dark' ? 'dark' : 'light'}
     </Button>    
     </div>
 

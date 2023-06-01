@@ -4,10 +4,12 @@ import { Link, useLocation } from 'react-router-dom';
 import { Movie } from './Home';
 import { FilmDetails } from './Detail';
 import {url, token} from '../components/Home';
+import { CardId } from './CardId';
+import { CardC } from './CardCarousel';
 
 export const DetailCardC = () => {
     const location = useLocation()
-    const { film } = location.state ?? {}
+    const { filmModal } = location.state ?? {}
 
     const [item,setItem] = useState<FilmDetails>()
 
@@ -16,41 +18,19 @@ export const DetailCardC = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const locationModal = useLocation()
+    const {film} = locationModal.state ?? {}
+
+
     useEffect(() => {
-        fetch(url + token + `&i=${film}`)
+        fetch(url + token + `&i=${filmModal}`)
         .then((response) => response.json())
         .then(data => setItem(data))
         .catch(err => console.error('error:' + err))}, []);
    
     return (
-        <>
-        <div className="flex-center" onClick={handleShow}>        
-        <Card className='card-details col-8'>
-          <div className="ab2" style={{backgroundImage: 'url('+item?.Poster + ')'}}/>
-            <Card.Body className='card-body-details'>
-              <Card.Title className=''>{item?.Title}</Card.Title>
-              <Card.Text className="card-details">
-                <ul>
-                  <li>Actors: {item?.Actors}</li> 
-                  <li>Awards: {item?.Awards}</li> 
-                  <li>Country: {item?.Country}</li>
-                  <li>Director: {item?.Director} </li>
-                  <li>Genre: {item?.Genre}</li>
-                  <li>Language: {item?.Language}</li>
-                  <li>Plot: {item?.Plot}</li>
-                  <li>Rated: {item?.Rated}</li>
-                  <li>Released: {item?.Released}</li>
-                  <li>Runtime: {item?.Runtime }</li>
-                  <li>Type: {item?.Type} </li>
-                  <li>Writer: {item?.Writer} </li>
-                  <li>Year: {item?.Year}</li>
-                </ul>
-              </Card.Text>
-              <Link to={'/home'} state={{filmSaved: item?.imdbID, typeSaved: item?.Type}}><div className="card-button">Torna alla home</div></Link>
-            </Card.Body>
-          </Card>
-          </div>
-
+      <>
+        <CardId item={film} key={film}/>
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Modal heading</Modal.Title>
@@ -85,11 +65,8 @@ export const DetailCardC = () => {
         <Button variant="secondary" onClick={handleClose}>
           Close
         </Button>
-        <Button variant="primary" onClick={handleClose}>
-          Save Changes
-        </Button>
       </Modal.Footer>
     </Modal>
-          </>
+    </>
     )
-    }
+  }

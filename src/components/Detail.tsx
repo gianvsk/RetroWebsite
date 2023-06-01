@@ -5,6 +5,7 @@ import { Card, Container } from 'react-bootstrap';
 import '../style/style.css'
 import { CardDetailC } from './CardDetails';
 import { CardC } from './CardCarousel';
+import { CardId } from './CardId';
 
 export type FilmDetails = {
     Actors: string, 
@@ -69,6 +70,9 @@ export const Detail = () => {
     const location = useLocation()
     const { film } = location.state ?? {}
 
+    const locationDetails = useLocation()
+    const {filmDetails} = locationDetails.state ?? {}
+
     const [actualFilm, setActualFilm] = useState<FilmDetails>()
 
     useEffect(() => {
@@ -79,10 +83,9 @@ export const Detail = () => {
 
         return (
             <>
-            {film && <Container className="container-fluid flex-center-details">
-                <CardC item={actualFilm!} key={film}/>
-            </Container> }
-            {film && <Outlet/>}
+           <Container className="container-fluid flex-center-details">
+                <CardId item={actualFilm!} key={film}/>
+            </Container> 
             </>
         )
     }

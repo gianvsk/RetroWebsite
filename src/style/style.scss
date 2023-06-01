@@ -24,6 +24,27 @@ body {
     }
 }
 
+.theme-light-nav {
+    animation-name: theme-change-light;
+    animation-duration: 1.5s;
+}
+
+.theme-dark-nav {
+    animation-name: theme-change-dark;
+    animation-duration: 1.5s;
+}
+
+.navbar-brand .btn {
+    height:30px;
+    width:160px;
+    padding: 5px;
+    font-size:14px;
+    text-align: center;
+    padding:0;
+    border-radius:15px 15px;
+    background-color: rgb(153, 146, 255);
+}
+
 .div-theme-light  {
     color:black;
     animation-name:theme-change-light;
@@ -160,12 +181,11 @@ body {
     position: sticky;
     z-index:999;
     top:0;
-    background-color:rgb(55 55 55);
     color:white;
 }
 
 .navbar-brand {
-    color:rgb(153, 64, 255);
+    color:rgb(153, 146, 255);
 }
 
 .navbar-toggler {
@@ -173,7 +193,7 @@ body {
 }
 
 .navbar-toggler.collapsed {
-    background-color: rgb(153, 64, 255);
+    background-color: rgb(153, 146, 255);
 }
 
 .login {
@@ -433,6 +453,7 @@ span {
 
 .offcanvas-header {
     background-color:rgb(153, 64, 255);
+    height:60px;
 }
 
 .offcanvas-separator {
@@ -557,7 +578,7 @@ span {
 .justify-content-space-around {
     display:flex;
     justify-content: space-around;
-    height:80px;
+    height:50px;
     background-color:rgb(55, 55, 55);
 }
 
@@ -579,7 +600,19 @@ span {
     }
 }
 
+.theme-light-footer {
+    color:black;
+    background-color:white;
+    animation-name: theme-change-light;
+    animation-duration: 1.5s;
+}
 
+.theme-dark-footer {
+    color:white;
+    background-color: rgb(55 55 55);
+    animation-name: theme-change-dark;
+    animation-duration: 1.5s;
+}
 
 @media (min-width:330px) {
 
@@ -620,6 +653,7 @@ span {
         height:650px;
     }
     .carousel-comp {
+        position:relative;
         width:100%;
         height:700px;
     }
@@ -748,8 +782,9 @@ span {
         }
     }
     .card-button-1 {
+        width:50px;
         font-size:20px;
-        height:40px;
+        height:30px;
         font-weight: 500;
         text-align:center;
         padding:5px;
@@ -784,13 +819,15 @@ span {
         .h5 {
             font-family: Montserrat;
             color:white;
-            font-size:30px;
+            font-size:24px;
             text-shadow: 0.5rem 0.5rem 0.4rem black;
             text-align: center;
         }
     }
 
     .big {
+        display:flex;
+        align-items: center;
         height:100px;
         width:100%;
     }
@@ -822,7 +859,6 @@ span {
 
     .footer {
         height:300px;
-        background-color: rgb(55, 55, 55);
     }
 
     .footer-c1 {

@@ -45,7 +45,6 @@ const App = () => {
     <MyContext.Provider value={contextValues}>
     <NavbarC/>
     <div className='row d'>
-      <ThemeProviderr/>
       <Sidebar/>
       <div className={`col-12 ${themeContainer}`}>
         <Home/>
